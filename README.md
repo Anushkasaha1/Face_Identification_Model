@@ -2,6 +2,14 @@
 
 This project presents a robust deep learning pipeline for **face identification**, capable of classifying facial images into specific individual identities. Built on top of a pre-trained ResNet18 architecture and trained with custom data, the model excels at distinguishing subtle facial features unique to each person.
 
+# Model Weight
+
+Model weight (.pth file) are stored on google drive due to file size limits.
+
+## Download Model Weights here
+
+https://drive.google.com/file/d/1mwe6DG6YM7J8VV5nGg9xYWgWwP71TeMJ/view?usp=sharing
+
 ---
 
 ## 🚀 Overview
