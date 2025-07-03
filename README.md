@@ -12,6 +12,40 @@ https://drive.google.com/file/d/1mwe6DG6YM7J8VV5nGg9xYWgWwP71TeMJ/view?usp=shari
 
 ---
 
+# Model Architecture,training loop and validation loop
+
+https://github.com/Anushkasaha1/Face_Identification_Model/blob/main/face_identification_model.py
+
+## 🧠 Model Architecture
+
+The model architecture is based on **ResNet18**, modified as follows:
+
+- **Backbone:** ResNet18 pre-trained on ImageNet
+- **Custom Head:**
+  - Original final FC layer replaced with:
+    - Linear layer → 512 units
+    - ReLU activation
+    - Dropout (e.g. p = 0.5)
+    - Linear layer → Number of classes (equals number of unique identities)
+   
+import torch.nn as nn
+from torchvision import models
+
+model = models.resnet18(pretrained=True)
+
+# Freeze early layers if desired:
+for param in model.parameters():
+    param.requires_grad = False
+
+# Replace FC layer
+model.fc = nn.Sequential(
+    nn.Linear(512, 512),
+    nn.ReLU(),
+    nn.Dropout(0.5),
+    nn.Linear(512, NUM_CLASSES)
+)
+
+
 ## 🚀 Overview
 
 - **Framework:** PyTorch
@@ -40,12 +74,6 @@ The pipeline leverages transfer learning to efficiently recognize individual ide
 
 ---
 
-### 🧠 Model Architecture
-
-- Adopts a ResNet18 backbone for feature extraction.
-- Replaces the final fully connected layer to match the number of identities in the dataset.
-
----
 
 ### 🎯 Training Process
 
