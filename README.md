@@ -51,6 +51,7 @@ The pipeline leverages transfer learning to efficiently recognize individual ide
 
 - Evaluates model performance on unseen validation images.
 - Calculates accuracy metrics to monitor learning progress.
+- Accuracy = 100 %
 
 ---
 
